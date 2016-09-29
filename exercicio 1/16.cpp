@@ -7,6 +7,6 @@ int main(){
 	
 	cin>>a>>o;
 	
-	cout<<(int)(o/(a/100))<<endl;
+	cout<<(int)(o*100/a)<<endl;
 	return 0;
 }
