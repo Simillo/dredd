@@ -1,11 +1,15 @@
 #include <iostream>
-#include <cmath>
+
 using namespace std;
 
 int main(){
-	float a,o;
+	int a,b,m;
 	
-	cin>>a>>o;
-	cout<<ceil(o*100/a)<<endl;
+	cin>>a>>b;
+	
+	m = a>b?a:b;
+	
+	cout<<m<<endl;
+	
 	return 0;
 }
