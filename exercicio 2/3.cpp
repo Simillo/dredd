@@ -1,28 +1,18 @@
 #include <iostream>
-
 using namespace std;
-/*
-dando erraddo
 
-nao usar
-
-*/
-int main(){
+int main()
+{
+	int tipoI;
 	
-	int t,v;
+	float valorI, r1 = 0.005, r2= 0.03, tx=30;
 	
-	float total;
+	cin>>tipoI>>valorI;
 	
-	cin>>t>>v;
-	
-	if(t==1){
-		total = (v*0.5)/100+v;
-		cout<<total<<endl;
-	}
-	else{
-		v-=30;
-		total = (v*3)/100+v;
-		cout<<total<<endl;
-	}
-	return 0;	
+	if(tipoI==1)
+		cout<<valorI + valorI * r1<<endl;
+	else
+		cout<<((valorI*r2)+(valorI-tx))<<endl;
+    return 0;
 }
+
