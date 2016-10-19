@@ -28,11 +28,10 @@ int main(){
 	if(ind == -1)
 		cout<<"ELEMENTO NAO ENCOTRADO"<<endl;
 	else{
-		int r;
-		for(int i = ind;i<(r=v.size());i++){
+		for(int i = ind;i<n;i++)
+		
 			v[i] = v[i+1];
-		}
-		for(int i=0;i<r-1;i++)
+		for(int i=0;i<n-1;i++)
 			cout<<v[i]<<" ";
 	}
 	

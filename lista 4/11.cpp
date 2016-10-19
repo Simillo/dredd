@@ -23,7 +23,18 @@ int main(){
 	ind1 = indexOf(v,n,c1);
 	ind2 = indexOf(v,n,c2);
 	
-	for(int i=ind1+1;i<ind2;i++)
+	int maior,menor;
+	
+	if(ind1>ind2){
+		maior = ind1;
+		menor = ind2;
+	}else{
+		maior = ind2;
+	1	menor = ind1;
+	}
+	
+	
+	for(int i=menor+1;i<maior;i++)
 		cout<<v[i]<<" ";
 	return 0;
 }
