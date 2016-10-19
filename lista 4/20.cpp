@@ -18,22 +18,21 @@ vector<int> int_to_vec(int n){
 	return vs;
 }
 
-
 int main(){
 	int n;
+	
 	vector<int> numeros;
 	cin>>n;
 	
 	int r,h = n;
-	
-	
+		
 	while(n!=1){
 		vector<int> e;
 		e = int_to_vec(n);
 		n = 0;
-		for(int i=0;i<(int)e.size();i++){
-			n+=pow(e[i],2);
-		}
+	
+		for(int i=0;i<(int)e.size();i++) n+=pow(e[i],2);
+		
 		if(n==1){
 			numeros.push_back(n);
 			r = 1;
@@ -41,11 +40,12 @@ int main(){
 		}
 		if(find(numeros.begin(),numeros.end(),n)!=numeros.end()||n==h){
 			numeros.push_back(n);
-			r=0;
+			r = 0;
 			break;
 		}else
 			numeros.push_back(n);
 	}
+	
 	for(int i=0;i<(int)numeros.size();i++)
 		cout<<numeros[i]<<" ";
 	
@@ -57,5 +57,6 @@ int main(){
 		cout<<"nao";
 		
 	cout<<endl;
+	
 	return 0;
 }
