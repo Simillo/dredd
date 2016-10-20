@@ -37,10 +37,14 @@ int main(){
 		}
 	}
 	
-	cout<<qnt<<endl;
 	
-	for(i = 0;i<qnt-1;i++)
-		cout<<repetidos[i]<<" ";
-	cout<<repetidos[qnt-1]<<endl;
+	if(qnt!=0){
+		cout<<qnt<<endl;
+		
+		cout<<repetidos[qnt-1]<<" ";
+		
+		for(i = 0;i<qnt-1;i++)
+			cout<<repetidos[i]<<" ";
+	}
 	return 0;
 }

@@ -3,7 +3,7 @@
 using namespace std;
 
 int indexOf(vector<int>v, int n){
-	for(int i=0;i<v.size();i++){
+	for(int i=0;i<(int)v.size();i++){
 		if(v[i]==n)
 			return i;
     }
@@ -29,7 +29,6 @@ int main(){
 		cout<<"ELEMENTO NAO ENCOTRADO"<<endl;
 	else{
 		for(int i = ind;i<n;i++)
-		
 			v[i] = v[i+1];
 		for(int i=0;i<n-1;i++)
 			cout<<v[i]<<" ";
