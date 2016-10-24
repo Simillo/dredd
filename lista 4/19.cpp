@@ -25,8 +25,8 @@ int main(){
 			x=i;
 		}
 	}
-	vs.push_back(aux);
 	h++;
+	vs.push_back(aux);
 	while((int(vn.size()-b)>h)){
 		for(i = x+1;i<=b+h;i++){
 			if(i>int(vn.size())-int(vn.size()-b))
