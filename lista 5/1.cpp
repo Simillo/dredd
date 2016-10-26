@@ -7,7 +7,7 @@ int main(){
 	int n;
 	cin>>n;
 	
-	int v[n+1];
+	int v[n];
 	
 	for(int i= 0 ;i<n;i++)
 		cin>>v[i];
@@ -23,6 +23,9 @@ int main(){
         	ini = meio+1;
 		meio = (ini + fim)/2;
 	}
-	cout<<meio<<endl;
+	if(ini>fim)
+		cout<<-1<<endl;
+	else
+		cout<<meio<<endl;
 	return 0;
 }
