@@ -1,50 +1,57 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
-int existe(vector<int> v,int n){
-	if(find(v.begin(),v.end(),n)!=v.end())
-		return 1;
-	else
-		return 0;
-}
-
-
 int main(){
-
-	int n , qnt = 0, i,num;
-	vector<int> v,repetidos;
 	
+	int n,u;
 	cin>>n;
-
-	for(i=0;i<n;i++){
-		cin>>num;
-		v.push_back(num);
+	
+	vector<int> vetor;
+	
+	for(int i=0;i<n;i++){
+		cin >> u;
+		vetor.push_back(u);
 	}
 	
-	for(i=0;i<n;i++){
-		for(int j = 0;j<n;j++){
-			if(i==j||existe(repetidos,v[i]))
-				continue;
-			else{
-				if(v[i]==v[j]){
-					repetidos.push_back(v[i]);
-					qnt++;
-				}
+	int moda = 0,qntrep = 0,tamanho = vetor.size();
+	for(int i=0;i<tamanho;i++){
+		for(int j=0;j<tamanho;j++){
+			if(vetor[i]==vetor[j] && i!=j){
+				qntrep++;
 			}
+		}
+		if(qntrep>moda)
+			moda = qntrep;
+		qntrep = 0;
+	}
+	
+	vector<int> numeros;
+	
+	for(int i=0;i<tamanho;i++){
+		qntrep = 0;
+		for(int j=0;j<tamanho;j++){
+			if(vetor[i]==vetor[j] && i!=j){
+				qntrep++;
+			}
+		}
+		if(qntrep == moda){
+			bool existe = false;
+			for(int x = 0; x<(int)numeros.size();x++){
+				if(vetor[i] == numeros[x])
+					existe = true;
+			}
+			if(!existe)
+				numeros.push_back(vetor[i]);
 		}
 	}
 	
+	int t = numeros.size();
+	cout<<(int)numeros.size()<<endl;
 	
-	if(qnt!=0){
-		cout<<qnt<<endl;
-		
-		cout<<repetidos[qnt-1]<<" ";
-		
-		for(i = 0;i<qnt-1;i++)
-			cout<<repetidos[i]<<" ";
-	}
+	for(int i=0;i<t;i++)
+		cout<<numeros[i]<<" ";
+	cout<<endl;
 	return 0;
 }
