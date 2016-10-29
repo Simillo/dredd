@@ -52,7 +52,7 @@ int main()
     		if(j==i)
     			cout<<float(1)<<" ";
         	else if(j<n)
-				cout<<float(0)<<" ";
+				cout<<0<<" ";
 			else
 				cout<<float(x[i])<<" ";   
 		}
