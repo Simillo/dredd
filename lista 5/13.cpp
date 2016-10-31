@@ -28,28 +28,32 @@ int main(){
 				maior[i] = abs(m[i][j]);
 		}
 	}
-	
+	int h = 1;
 	for(int i=0;i<l;i++)
 		for(int j=0;j<c;j++){
 			if(maior[i]==0)
-				m[i][j] = -1;
+				h = 0;
 			else
 				m[i][j] = m[i][j]/maior[i];
 		}
 	
-	for(int i=0;i<l;i++){
-		for(int j=0;j<c;j++)
-			cout<<o[i][j]<<" ";
+	if(h){
+		for(int i=0;i<l;i++){
+			for(int j=0;j<c;j++)
+				cout<<o[i][j]<<" ";
+			cout<<endl;
+		}
+
 		cout<<endl;
-	}
-	
-	cout<<endl;
-	
-	for(int i=0;i<l;i++){
-		for(int j=0;j<c;j++)
-			cout<<m[i][j]<<" ";
-		cout<<endl;
-	}
+		
+		for(int i=0;i<l;i++){
+			for(int j=0;j<c;j++)
+				cout<<m[i][j]<<" ";
+			cout<<endl;
+		}
+
+	}else
+		cout<<-1<<endl;
 	
 	return 0;
 }
