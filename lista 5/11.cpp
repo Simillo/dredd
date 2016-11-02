@@ -26,4 +26,3 @@ int main()
 	cout<<menor<<endl<<linha<<" "<<coluna<<endl;
     return 0;
 }
-
