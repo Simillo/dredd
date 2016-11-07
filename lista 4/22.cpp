@@ -43,6 +43,8 @@ int main(){
 	
 	if(!h)
 		cout<<"ERRO"<<endl;
+	else
+		cout<<endl;
 	
 	return 0;
 }
