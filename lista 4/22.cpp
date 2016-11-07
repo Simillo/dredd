@@ -24,13 +24,19 @@ int main(){
 	int h = 0, fi = -1,fj = -1;
 	for(i=0;i<n1;i++){
 		for(j=0;j<n2;j++){
-			if(v1[i]==v2[j]&&((v1[i+1]==v1[i]+1&&v2[j+1]==v2[j]+1)||(v1[i-1]==v1[i]-1&&v2[j-1]==v2[j]-1))){
-				if(fi!=-1&&fj!=-1&&fi+1!=i&&fj+1!=j)
-					cout<<endl;
-				cout<<v1[i]<<" ";
-				h = 1;
-				fi = i;
-				fj = j;
+			if(v1[i]==v2[j]){
+
+				if((v1[i+1]==v1[i]+1 and v2[j+1]==v2[j]+1) or (v1[i-1]==v1[i]-1 and v2[j-1]==v2[j]-1)){
+
+					if(fi!=-1 and fj!=-1 and fi+1!=i and fj+1!=j){
+						cout<<endl;
+					}
+					
+					cout<<v1[i]<<" ";
+					h = 1;
+					fi = i;
+					fj = j;
+				}
 			}
 		}
 	}
