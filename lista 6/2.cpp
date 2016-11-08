@@ -1,7 +1,5 @@
 #include <iostream>
 #include <cstring>
-#include <vector>
-#include <string>
 
 using namespace std;
 	
@@ -11,6 +9,7 @@ using namespace std;
 		char sexo;
 		float altura;
 		float peso;
+		float dif;
 	} Dados;
 
 int main(){
@@ -18,9 +17,6 @@ int main(){
 
 	cin >> qnt;
 	
-	vector<float> vetorfloat;
-	vector<string> vetorstring;
-	vector<int> vetorindex;
 	Dados v[qnt];
 
 	for(int i = 0;i < qnt; i++)
@@ -40,21 +36,19 @@ int main(){
 
 	for(int i = 0;i<qnt;i++){
 		if(v[i].sexo == 'H'){
-			vetorfloat.push_back(-(v[i].peso -(72.7 * v[i].altura - 58.0)));
-			vetorstring.push_back(v[i].nome);
+			v[i].dif = ((72.7 * v[i].altura - 58.0)-v[i].peso);
 		}else{
-			vetorfloat.push_back(-(v[i].peso -(62.1 * v[i].altura - 44.7)));
-			vetorstring.push_back(v[i].nome);
+			v[i].dif = ((62.1 * v[i].altura - 44.7)-v[i].peso);
 		}
 	}
-	for(int i=0;i<(int)vetorfloat.size();i++){
-		if(vetorfloat[i] < 0){
-			cout << vetorstring[i]<< " " << vetorfloat[i] << endl;
-		}else{
-			vetorindex.push_back(i);
-		}
+
+	for(int i=0;i<qnt;i++){
+		if(v[i].dif<0)
+			cout << v[i].nome << " " << v[i].dif << endl;
 	}
-	for(int i=0;i<(int)vetorindex.size();i++)
-		cout << vetorstring[vetorindex[i]]<< " " << vetorfloat[vetorindex[i]] << endl;
+	for(int i=0;i<qnt;i++){
+		if(v[i].dif>=0)
+			cout << v[i].nome << " " << v[i].dif << endl;
+	}
 	return 0;
 }
