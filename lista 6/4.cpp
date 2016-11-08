@@ -3,51 +3,100 @@
 
 using namespace std;
 
-
-typedef struct
+typedef struct 
 {
-	char empresa[50];
-	char operacao[50];	
-} REO;
+	int conta;
+	char nome[100];
+} Registro;
 
 typedef struct 
 {
-	char operacao[50];
-	char nome[50];
-	int desvio;
-} ROND;
-
+	int conta;
+	char desc[250];
+	float valor;
+} Transferencia;
 
 int main(){
+	int c=0;
+	
+	Registro vetorReg[20];
+	
+	Transferencia vetorTrans[100];
+	
+	int con = 0;
 
-	int qntempresas;
+	while(c<20 && con>=0){
+		
+		cin >> con;
+		
+		if(con >= 0){
+		
+			vetorReg[c].conta = con;
+		
+			cin >> vetorReg[c].nome;
+		
+			c++;
+		
+		}
+	}
 
-	cin >> qntempresas;
+	int totalconta = c;
+	int contasvetor[c];
 
-	REO vo[qntempresas];
+	c=0;
+	con=0;
 
-	for(int i=0;i<qntempresas;i++)
-		cin >> vo[i].empresa >> vo[i].operacao;
+	while(c<100 && con>=0){
+		
+		cin >> con;
+		
+		if(con >=0){
+		
+			vetorTrans[c].conta = con;
+		
+			cin >> vetorTrans[c].desc >> vetorTrans[c].valor;
 
-	int qntoperacao;
+			c++;
+		
+		}
+	}
 
-	cin >> qntoperacao;
+	int totaltrans = c;
 
-	ROND vn[qntoperacao];
+	c=0;
+	con=0;
 
-	for(int i = 0;i<qntoperacao;i++)
-		cin >> vn[i].operacao >> vn[i].nome >> vn[i].desvio;
+	while(c<=totalconta && con >=0){
 
-	char empresabusca[50], nomebusca[50];
-	cin >> empresabusca >> nomebusca;
-	int soma = 0;
+		cin >> con;
+		
+		if(con>=0){
+		
+			contasvetor[c] = con;
 
-	for(int i=0;i<qntoperacao;i++)
-		if (strcmp(vn[i].nome,nomebusca)==0)	
-			for(int j=0;j<qntempresas;j++)
-				if(strcmp(vn[i].operacao,vo[j].operacao)==0&&strcmp(vo[j].empresa,empresabusca)==0)
-					soma+=vn[i].desvio;
+			c++;
+		
+		}
+	}
 
-	cout << soma << endl;
+	for(int i = 0; i < totalconta; i++){
+		
+		for(int j = 0; j < totalconta; j++){
+			
+			if(vetorReg[j].conta == contasvetor[i]){
+				
+				cout << vetorReg[j].nome << endl;
+				
+				for(int x = 0;x < totaltrans; x++){
+
+					if(contasvetor[i] == vetorTrans[x].conta){
+		
+						cout << vetorTrans[x].desc << " " << vetorTrans[x].valor << endl;
+					}
+				}
+			}
+		}
+	}
+
 	return 0;
 }
