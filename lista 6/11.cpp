@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -22,16 +23,11 @@ int main(){
 	float somay,somax,somatotal = 0.0,media;
 	
 	for(int i=1;i<5;i++){
-		somay = (ponto[rota[i]].y - ponto[rota[i-1]].y);
-		somax = (ponto[rota[i]].x - ponto[rota[i-1]].x);
+		somay = pow((ponto[rota[i]].y - ponto[rota[i-1]].y),2);
+		somax = pow((ponto[rota[i]].x - ponto[rota[i-1]].x),2);
 
-		if(somax==0)
-			media = somay;
-		else
-			media = somay/somax;
+		media = sqrt(somay+somax);
 
-		cout << media << endl;
-		
 		somatotal += media;
 	}
 
