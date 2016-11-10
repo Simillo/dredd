@@ -25,12 +25,12 @@ int main(){
 	}
 
 	for(int i = 0;i<qnt;i++){
-		cout << g[i].gnome << endl;
+		int soma = 0;
 		for(int j = 0;j<7;j++)
-			cout<<g[i].entrada[j] << " " << g[i].saida[j] << endl;
+			soma+=(g[i].saida[j] - g[i].entrada[j]);
+		if(soma < 70)
+			cout << g[i].gnome << " " << soma << endl;
 	}
-
-
 
 	return 0;
 }
