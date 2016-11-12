@@ -45,8 +45,8 @@ PY = 3
 		if
 		(
 			eb[0] <= px && eb[1] <= py &&
-			ea[0] >= py && ea[1] >= px &&
-			db[0] <= px && db[1] <= py &&
+			ea[0] <= py && ea[1] >= px &&
+			db[0] >= px && db[1] <= py &&
 			da[0] >= py && da[1] >= px
 		)
 			c++;
