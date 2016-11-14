@@ -37,11 +37,6 @@ int main(){
 		int ea[2] = {retangulo[i].v1.x,retangulo[i].v2.y};
 		int db[2] = {retangulo[i].v2.x,retangulo[i].v1.y};
 		int da[2] = {retangulo[i].v2.x,retangulo[i].v2.y};
-/*
-PX = 2
-PY = 3
-*/		
-
 		if (eb[0] <= px && eb[1] <= py && ea[0] <= px && ea[1] >= py && db[0] >= px && db[1] <= py && da[0] >= px && da[1] >= py)
 				c++;
 	}
