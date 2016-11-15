@@ -10,90 +10,81 @@ typedef struct{
 } Cliente;
 
 typedef struct{
-    int cod;
     int conta;
     int valor;
+    Cliente cliente;
 } Compra;
-
 
 int main()
 {
     int tipo = -1, n = 0, cod, conta, valor;
     
-    int c1=0, c2=0;
+    int c1=0,c2=0;
     
     char nome[100];
     
-    Cliente cliente[100];
-    
     Compra compra[100];
+    Cliente cliente[100];
     
     vector<string> resultado;
     
     while(tipo!=0 && n<100){
+        
         cin >> tipo;
+
         if(tipo!=0){
             if(tipo == 1){
                 cin >> cod;
-                int v = 1;
-                for(int i=0;i<c1;i++){
-                    if(cliente[i].cod == cod){
+
+                int v=1;
+                for (int i = 0; i < c1; i++){
+                    if(cliente[i].cod == cod)
                         v=0;
-                    }
                 }
                 if(v){
                     cin >> nome;
                     cliente[c1].cod = cod;
                     strcpy(cliente[c1].nome,nome);
+                    resultado.push_back("OK"); 
                     c1++;
-                    resultado.push_back("OK");
                 }else
                     resultado.push_back("ERRO");
             }else if(tipo == 2){
                 cin >> cod;
-                int v = 1;
-                for(int i=0;i<c1;i++){
+
+                int v=1;
+
+                for (int i = 0; i < c1; i++){
                     if(cliente[i].cod == cod){
                         v=0;
+                        break;
                     }
                 }
-                if(v){
-                    resultado.push_back("ERRO");
-                }else{
+                if(!v){
                     cin >> conta >> valor;
-                    compra[c2].cod = cod;
                     compra[c2].conta = conta;
                     compra[c2].valor = valor;
-                    c2++;
                     resultado.push_back("OK");
-                }
+                    c2++;
+                }else
+                    resultado.push_back("ERRO");
             }else{
                 cin >> cod;
-                int v = 1;
-                for(int i=0;i<c2;i++){
-                    if(compra[i].cod == cod){
-                        if(compra[i].valor > 0){
-                            v=0;
-                        }
+
+                int v=1, index;
+
+                for (int i = 0; i < c1; i++){
+                    if(cliente[i].cod == cod){
+                        v=0;
+                        break;
                     }
                 }
-                if(v){
-                    int v = 1;
-                    int index;
-                    for(int i=0;i<c1;i++){
-                        if(cliente[i].cod == cod){
-                            v=0;
-                            index = i;
-                        }
+                if(!v){
+                    v=1;
+                    for (int i = 0; i < count; ++i)
+                    {
+                        /* code */
                     }
-                    if(v){
-                        resultado.push_back("ERRO");
-                    }else{
-                        cliente[index].cod = -1;
-                        resultado.push_back("OK");
-                    }
-                }else{
-                    resultado.push_back("ERRO");
                 }
             }
         }
