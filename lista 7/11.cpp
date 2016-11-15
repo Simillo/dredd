@@ -12,7 +12,7 @@ int f(vector<int> v){
 				s++;
 			}
 			else if(s>0){
-				i=j;
+				i=j-1;
 			 	break;
 			}
 		}

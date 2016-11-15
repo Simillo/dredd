@@ -14,7 +14,7 @@ int main(){
 	int n;
 	cin >> n;
 	vector<int> v = r(n);
-	for(int i=(int)v.size()-1;i>=0;i--)
-		cout << v[i] << " ";
+	for(int i=(int)v.size()-1;i>=0; cout << v[i--] << " ");
+	cout << endl;
 	return 0;
 }
