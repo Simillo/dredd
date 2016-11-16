@@ -7,17 +7,20 @@ int f(vector<int> v){
 	int c=0, t = v.size(),s;
 	for (int i = 0; i < t; i++){
 		s=0;
+		int index;
 		for (int j = i+1; j < t; j++){
 			if(v[j]<v[j-1]){
 				s++;
+				index = j;
 			}
 			else if(s>0){
-				i=j-1;
 			 	break;
 			}
 		}
-		if(s)
+		if(s){
+			i = index-1;
 			c++;
+		}
 	}
 	return c;
 }
