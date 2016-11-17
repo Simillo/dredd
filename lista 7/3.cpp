@@ -35,8 +35,9 @@ int main(){
 			cout << v[i] << endl;
 		else
 			p.push_back(v[i]);
-
-	vector<string> q = r(p);
-	cout << q[0] << endl << q[1] << endl;
+	if((int)p.size()>0){
+		vector<string> q = r(p);
+		cout << q[0] << endl << q[1] << endl;
+	}
 	return 0;
 }
