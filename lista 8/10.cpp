@@ -1,15 +1,13 @@
 #include <iostream>
 using namespace std;
-int s(int n){
-	return ++n;
-}
-int a(int n){
-	return --n;
-}
 
 int add(int x,int y){
-	return y==0?x:add(s(x),a(y));
+	if (!x)
+      return y;
+   else
+      return add((x & y) << 1, x ^ y);
 }
+
 int main(){
 	int x,y;
 	cin >> x >> y;
