@@ -14,7 +14,7 @@ int main(){
 
 /*
 
-Código usando bitwise.
+Código usando bitshift.
 
 #include <iostream>
 
