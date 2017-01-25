@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int f(int n){
@@ -7,7 +8,16 @@ int f(int n){
 
 int main(){
 	int n;
-	cin >> n;
 
-	cout << f(n) << endl;
+	ifstream file;
+	file.open("entrada.txt");
+	if(file.is_open()){
+		while(!file.eof())
+			file >> n;
+	}
+	file.close();
+
+	ofstream outfile("saida.txt");
+	outfile << f(n) << endl;
+	outfile.close();
 }
