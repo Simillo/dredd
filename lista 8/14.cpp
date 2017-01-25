@@ -2,7 +2,7 @@
 using namespace std;
 
 int f(int v[], int s){
-	if(s==1)
+	if(s==0)
 		return v[0];
 	else
 		return v[s] < f(v,s-1) ? v[s] : f(v,s-1);
