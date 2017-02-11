@@ -39,7 +39,6 @@ int main()
     ofstream saida(nome.c_str());
     saida << menor << " " << seg << " " << sum << endl;
     saida.close();
-    //int aux = atoi(v[i].c_str());
     arq.close();
     return 0;
 }
