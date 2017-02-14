@@ -5,29 +5,16 @@
 using namespace std;
 
 ofstream saida("saida.ps");
-
-bool path(double x, double y, double angx, double angy, double angxi, double angyi, double tam, int qnt,int c){
+bool path(double x, double y, double angx, double angy, double tam, int qnt,int c){
 	if(qnt == 0){
 		return true;
 	}
-	// if(c%2==0){
-	// 	saida << x << " " << y << " moveto" << endl;
-	// 	x = cos(angx)*tam+x;
-	// 	y = sin(angy)*tam+y;
-	// 	angx+=0.26;
-	// 	angy-=0.26;
-	// 	saida << x << " " << y << " lineto" << endl;		
-	// }else{
-	// 	// saida << xi << " " << yi << " moveto" << endl;
-	// 	saida << xi << " " << yi << " " << angxi <<" " << angyi << endl;
-	// 	xi = cos(angxi)*tam+xi;
-	// 	yi = sin(angyi)*tam+yi;
-	// 	angxi-=0.26;
-	// 	angyi+=0.26;
-	// 	// saida << xi << " " << yi << " lineto" << endl;
-	// }
+	saida << x << " " << y << " moveto" << endl;
+	x = cos(angx)*tam+x;
+	y = sin(angy)*tam+y;
+	saida << x << " " << y << " lineto" << endl;
 	tam = tam - tam/10.0;
-	return path(xi,yi,x,y,angx,angy,angxi,angyi,tam,qnt-1,c+1);
+	return path(x,y,angx-0.26,angy+0.26,tam,qnt-1,c+1);
 }
 
 int main(){
@@ -39,7 +26,7 @@ int main(){
 	int c = 1;
 	saida << "newpath" << endl;
 	path(x,y,ang,ang,tamanho,quantidade,c);
-	saida << "2 setlinewidth" << endl << "stroke" << endl;
+	saida << "2 setlinewidth" << endl << "stroke";
 	saida.close();
 	return 0;
 }
