@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdlib>
 #include <fstream>
 #include <vector>
 using namespace std;
@@ -13,31 +12,36 @@ bool isprime(int n){
  
 int main()
 {
-    vector<string> v;
+    string sai;
+    vector<int> v;
     ifstream arq("entrada.txt");
-    string ent;
-   
-    while(arq >> ent)
+    int ent;
+    while(arq >> ent){
         v.push_back(ent);
-   
-    int s = v.size() -2;
-    string nome = v[s+1];
-    vector<int> vInt;
-   
-    for(int i=0;i<s;i++)
-        vInt.push_back(atoi(v[i].c_str()));
-   
-    int menor = vInt[0], seg = vInt[1], sum = menor + seg;
-    for(int i=2;i<s;i++){
-        if(vInt[i] < menor){
-            seg = menor;
-            menor = vInt[i];
-        }else if(vInt[i] < seg)
-            seg = vInt[i];
-        sum+=vInt[i];
+        if(isprime(ent))
+            break;
     }
-    ofstream saida(nome.c_str());
-    saida << menor << " " << seg << " " << sum << endl;
+    arq >> sai;
+    int s = v.size();
+    for(int i=0;i<s;i++)
+        for(int j=i+1;j<s;j++)
+            if(v[i] > v[j]){
+                int aux = v[i];
+                v[i] = v[j];
+                v[j] = aux;
+            }
+    int sum = 0, menor = 99999999, seg = 9999999;
+    for(int i=0;i<s;i++){
+        if(v[i] < menor){
+            seg = menor;
+            menor = v[i];
+        }else if(v[i] < seg)
+            seg = v[i];
+        sum+=v[i];
+    }
+    ofstream saida(sai.c_str());
+    
+    saida << menor << " " << seg << " " << sum-menor-seg << endl;
     saida.close();
     arq.close();
     return 0;
