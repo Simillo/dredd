@@ -8,7 +8,7 @@ ofstream saida("arvore.ps");
 
 void path(double x1, double y1, double ang, double tamanho, double qnt){
 	if (qnt != 0){
-		saida << x1 << " " << y1 << " motevo" << endl;
+		saida << x1 << " " << y1 << " moveto" << endl;
 		double x2 = cos(ang) * tamanho + x1;
 		double y2 = sin(ang) * tamanho + y1;
 		saida << x2 << " " << y2 << " lineto" << endl;
@@ -26,7 +26,7 @@ int main(){
 
 	saida << "newpath" << endl;
 	path(x,y,ang,tamanho,qnt);
-	saida << "2 setlinewidth" << endl << "stroke";
+	saida << "2 setlinewidth" << endl << "stroke" << endl;
 	saida.close();
 	return 0;
 }
