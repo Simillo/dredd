@@ -14,7 +14,9 @@ int main()
 {
     string sai;
     vector<int> v;
-    ifstream arq("entrada.txt");
+    string nome_ent;
+    cin >> nome_ent;
+    ifstream arq(nome_ent.c_str());
     int ent;
     while(arq >> ent){
         v.push_back(ent);
