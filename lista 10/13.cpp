@@ -9,7 +9,6 @@ int main(){
   vector<char> v;
   
   char ent;
-  //cout << "oi " << endl;
   while(arq >> ent){
     v.push_back(ent); 
   }
