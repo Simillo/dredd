@@ -10,8 +10,10 @@ int main()
     
     cin.getline(s1,100);
     cin.getline(s2,100);
-
-    char* con = new char[strlen(s1)+strlen(s2)];
+	int l = strlen(s1);
+	s1[l] =  ' ';
+	s1[l+1] = '\0';
+    char* con = new char[l+strlen(s2)+1];
     
     con = strcat(s1,s2);
     cout << con << endl;
